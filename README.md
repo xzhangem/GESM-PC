@@ -188,8 +188,6 @@ Karcher means and tangent PCA must use a **frozen global** \((a_1,b_1,c_1,a_2)\)
 ```bibtex
 @article{zhang2026gesmpc,
   title   = {GESM-PC: General Elastic Shape Metric for Point Cloud Shape Analysis with Neural Deformation Representations},
-  author  = {Zhang, Xuechen and Jin, Yingzhao and Yang, Jiewen and Lan, Meng and Zhao, Lei and Lin, Qika and Xu, Guowen and Pu, Bin and Cambria, Erik},
-  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
   year    = {2026},
   note    = {under review}
 }

@@ -20,7 +20,7 @@ $$
 (D \mathbf{v})_{bend} = D_N \mathbf{v}.
 $$
 
-The elastic energy then is $langle D \mathbf{v})_{shr}, D \mathbf{v})_{shr} \rangle$
+The elastic energy then is $$langle D \mathbf{v})_{shr}, D \mathbf{v})_{shr} \rangle$$
 
 Paper: *GESM-PC: General Elastic Shape Metric for Point Cloud Shape Analysis with Neural Deformation Representations* (under review).
 

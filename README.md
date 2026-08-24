@@ -20,7 +20,7 @@ $$
 (D \mathbf{v})_{bend} = D_N \mathbf{v}.
 $$
 
-The first-order elastic energy then is $a_1 \langle Dv_{shr}, Dv_{shr} \rangle_F + b_1 \langle Dv_{scale}, Dv_{scalle} \rangle_F + c_1 \langle Dv_{bend}, Dv_{bend} \rangle_F$.
+The first-order elastic energy for point $p_i$ then is $\sum_{i} \sum_{i} \big( a_1 \langle Dv_{shr}, Dv_{shr} \rangle_F + b_1 \langle Dv_{scale}, Dv_{scalle} \rangle_F + c_1 \langle Dv_{bend}, Dv_{bend} \rangle_F \big) m(p_i)$.
 
 Paper: *GESM-PC: General Elastic Shape Metric for Point Cloud Shape Analysis with Neural Deformation Representations* (under review).
 

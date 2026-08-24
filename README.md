@@ -20,7 +20,7 @@ $$
 (D \mathbf{v})_{bend} = D_N \mathbf{v}.
 $$
 
-The first-order elastic energy for point $p_i$ then is $\big( a_1 \langle Dv_{shr}, Dv_{shr} \rangle_F + b_1 \langle Dv_{scale}, Dv_{scalle} \rangle_F + c_1 \langle Dv_{bend}, Dv_{bend} \rangle_F \big) m(p_i)$.
+The first-order elastic energy for point $p_i$ then is $\big( a_1 \langle Dv_{shr}, Dv_{shr} \rangle_F + b_1 \langle Dv_{scale}, Dv_{scalle} \rangle_F + c_1 \langle Dv_{bend}, Dv_{bend} \rangle_F \big) m(p_i)$, and $m(p_i)$ is the area element using [robust Laplacian](https://github.com/nmwsharp/robust-laplacians-py).
 
 Paper: *GESM-PC: General Elastic Shape Metric for Point Cloud Shape Analysis with Neural Deformation Representations* (under review).
 

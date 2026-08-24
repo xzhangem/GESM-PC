@@ -13,12 +13,14 @@ $$
 Shearing / scaling /bending component w.r.t. $d\mathbf{v}$ is 
 
 $$
-(D \mathbf{v})_{shr} = D_T - \frac{1}{2} \mathrm{Tr}(D_T \mathbf{v})  
+(D \mathbf{v})_{shr} = D_T \mathbf{v} - \frac{1}{2} \mathrm{Tr}(D_T \mathbf{v}) \mathbf{P},
+\qquad
+(D \mathbf{v})_{scale} = \frac{1}{2} \mathrm{Tr}(D_T \mathbf{v}) \mathbf{P},
+\qquad
+(D \mathbf{v})_{bend} = D_N \mathbf{v}.
 $$
 
-Shear / scale / bend are the Frobenius-orthogonal blocks of $$D_T,D_N$$ $$(k_1=1/2)$$, $$\mathrm{Tr}(D_N)=0$$. The **continuum** identification with GESM is exact up to the family coefficients $$a_1,b_1,c_1$$. The **discrete** energy is a quadrature; it is $$SE(3)$$-invariant. Right-diffeomorphism invariance holds only in the continuum. 
-
-This repository ships the energy as a **drop-in regularizer** inside existing neural deformation hosts. A rational-quadratic Chamfer kernel (RQ-CD) is an optional empirical fidelity, not part of the metric.
+The elastic energy then is $langle D \mathbf{v})_{shr}, D \mathbf{v})_{shr} \rangle$
 
 Paper: *GESM-PC: General Elastic Shape Metric for Point Cloud Shape Analysis with Neural Deformation Representations* (under review).
 

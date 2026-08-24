@@ -5,9 +5,15 @@
 Mesh GESM splits first-order deformation into shear, scale and bend using the surface metric $g_q$ and mesh connectivity. Point clouds have neither. GESM-PC replaces $g_q$ by the projectors $\mathbf{P}=I-\mathbf{n}\mathbf{n}^{\top}$, $\mathbf{N}=\mathbf{n}\mathbf{n}^{\top}$ built from pointwise normals, and evaluates a first-order energy on a local Jacobian:
 
 $$
-D_T = \mathbf{P}\ d\mathbf{v}\ \mathbf{P} + \mathbf{P} (d\mathbf{v})^{\top} \mathbf{P},
+D_T (\mathbf{v}) = \mathbf{P}\ d\mathbf{v}\ \mathbf{P} + \mathbf{P} (d\mathbf{v})^{\top} \mathbf{P},
 \qquad
-D_N = \mathbf{N}\ d\mathbf{v}\ \mathbf{P} + \mathbf{P} (d\mathbf{v})^{\top} \mathbf{N}.
+D_N (\mathbf{v}) = \mathbf{N}\ d\mathbf{v}\ \mathbf{P} + \mathbf{P} (d\mathbf{v})^{\top} \mathbf{N}.
+$$
+
+Shearing / scaling /bending component w.r.t. $d\mathbf{v}$ is 
+
+$$
+(D \mathbf{v})_{shr} = D_T - \frac{1}{2} \mathrm{Tr}(D_T \mathbf{v})  
 $$
 
 Shear / scale / bend are the Frobenius-orthogonal blocks of $$D_T,D_N$$ $$(k_1=1/2)$$, $$\mathrm{Tr}(D_N)=0$$. The **continuum** identification with GESM is exact up to the family coefficients $$a_1,b_1,c_1$$. The **discrete** energy is a quadrature; it is $$SE(3)$$-invariant. Right-diffeomorphism invariance holds only in the continuum. 

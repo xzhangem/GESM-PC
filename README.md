@@ -20,7 +20,7 @@ $$
 (D \mathbf{v})_{bend} = D_N \mathbf{v}.
 $$
 
-The elastic energy then is $<(D\mathbf{v})_{shr}, (D\mathbf{v})_{shr}>_F$
+The first-order elastic energy then is $a_1 \langle \rangle_F$.
 
 Paper: *GESM-PC: General Elastic Shape Metric for Point Cloud Shape Analysis with Neural Deformation Representations* (under review).
 

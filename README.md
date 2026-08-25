@@ -33,11 +33,10 @@ GESM-PC/
     nfgp/               # implicit handle-based editing
     4deform/            # implicit interpolation
   examples/
-    mesh_surrogate/     # face-wise GESM vs vertex-wise GESM-PC (Hartman sphere)
-  third_party/          # unmodified upstream READMEs / licenses
+    quickstart.py
 ```
 
-Each `hosts/*` tree is the **upstream code with GESM-PC wired in**. Keep the original license files. Core operators live in `gesm_pc/` so hosts do not fork four copies of \(D_T,D_N\).
+Each `hosts/*` tree is the **upstream code with GESM-PC wired in**. Keep the original license files. Core operators live in `gesm_pc/` so hosts do not fork four copies of $D_T,D_N$. 
 
 ---
 
@@ -59,22 +58,9 @@ Default deformation weights are **frozen and uniform** (the setting covered by t
 ---
 
 ## Quick start (the energy only)
-
-```python
-import torch
-from gesm_pc import projectors, operators, energy, knn_jacobian, rq_cd
-
-p, v, n = ...          # [N,3] points, velocities, unit normals
-P, N = projectors(n)   # P = I - nn^T, N = nn^T
-J = knn_jacobian(p, v, k=30)          # ambient WLS; pinv on the 3x3 Gram
-# D_T, D_N already contain *P; feeding J or J @ P gives the same G
-DT, DN = operators(J, P, N)
-G = energy(DT, DN, a1=1.0, b1=1.0, c1=1.0, mass=None)
-fid = rq_cd(p_deformed, p_target, alpha=3.0, sigma=1.0)  # optional
 ```
-
-`energy` returns \(\sum_i m_i(a_1\|(Dv)_{\mathrm{shr}}\|_F^2 + b_1\tfrac12\mathrm{Tr}(D_T)^2 + c_1\|D_N\|_F^2)\). Laplacian smoothing \(a_2\) is host-specific (cotangent on meshes, kNN on clouds).
-
+pip install -e .
+python examples/quickstart.py 
 ---
 
 ## 1. OAR — correspondence-free registration

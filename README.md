@@ -61,7 +61,9 @@ Default deformation weights are **frozen and uniform** (the setting covered by t
 
 ```bash
 pip install -e .
-python examples/quickstart.py 
+python examples/quickstart.py
+```
+
 ---
 
 ## 1. OAR — correspondence-free registration

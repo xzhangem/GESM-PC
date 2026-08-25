@@ -58,6 +58,7 @@ Default deformation weights are **frozen and uniform** (the setting covered by t
 ---
 
 ## Quick start (the energy only)
+
 ```bash
 pip install -e .
 python examples/quickstart.py 

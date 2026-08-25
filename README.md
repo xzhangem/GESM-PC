@@ -10,10 +10,7 @@ D_T=\mathbf{P} d\mathbf{v} \mathbf{P}+\mathbf{P}(d\mathbf{v})^{\top}\mathbf{P},\
 D_N=\mathbf{N} d\mathbf{v} \mathbf{P}+\mathbf{P}(d\mathbf{v})^{\top}\mathbf{N}.
 $$
 
-Shear / scale / bend components are the Frobenius-orthogonal blocks as $(D\mathbf{v})_{shr} = D_T\mathbf{v}-\frac{1}{2}\mathrm{Tr}(D_T\mathbf{v})\mathbf{P}$ 
-This repository ships the energy as a **drop-in regularizer** inside existing neural deformation hosts. A rational-quadratic Chamfer kernel (RQ-CD) is an optional empirical fidelity, not part of the metric.
-
-Paper: *GESM-PC: General Elastic Shape Metric for Point Cloud Shape Analysis with Neural Deformation Representations* (under review).
+Shear / scale / bend components of Jacobian $d\mathbf{v}$ are the Frobenius-orthogonal blocks as $(D\mathbf{v})_{shr} = D_T\mathbf{v}-\frac{1}{2}\mathrm{Tr}(D_T\mathbf{v})\mathbf{P}$, $(D\mathbf{v})_{scale}=\frac{1}{2}\mathrm{Tr}(D_T\mathbf{v})\mathbf{P}$, and $(D\mathbf{v})_{bend}=D_N\mathbf{v}$.
 
 ---
 

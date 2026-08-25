@@ -25,6 +25,8 @@ $$
 ```
 GESM-PC/
   gesm_pc/              # standalone energy + WLS Jacobian + RQ-CD
+    __init__.py
+    core.py          # projectors / knn_jacobian / operators / energy / rq_cd
   hosts/
     oar/                # correspondence-free registration (FAUST / TOSCA / Open-CAS)
     graphscnet/         # correspondence-based deformation graph (4DMatch)

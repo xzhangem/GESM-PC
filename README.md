@@ -14,6 +14,8 @@ Shear / scale / bend components of Jacobian $d\mathbf{v}$ are the Frobenius-orth
 
 $$
 (D\mathbf{v})_{shr} = D_T\mathbf{v}-\frac{1}{2}\mathrm{Tr}(D_T\mathbf{v})\mathbf{P}, \qquad
+(D\mathbf{v})_{scale}=\frac{1}{2}\mathrm{Tr}(D_T\mathbf{v})\mathbf{P}, \qquad
+(D\mathbf{v})_{bend}=D_N\mathbf{v}.
 $$
 
 ---

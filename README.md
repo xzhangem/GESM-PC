@@ -2,8 +2,8 @@
 
 **General Elastic Shape Metric for Point Clouds** — an *extrinsic surrogate* of mesh [GESM](https://github.com/emmanuel-hartman/H2_SurfaceMatch) for unstructured points.
 
-Mesh GESM splits first-order deformation into shear, scale and bend using the surface metric \(g_q\) and mesh connectivity. Point clouds have neither. GESM-PC replaces \(g_q\) by the projectors
-\(\mathbf{P}=\mathbf{I}-\mathbf{n}\mathbf{n}^{\top}\), \(\mathbf{N}=\mathbf{n}\mathbf{n}^{\top}\) built from pointwise normals, and evaluates a first-order energy on a local Jacobian:
+Mesh GESM splits first-order deformation into shear, scale and bend using the surface metric $g_q$ and mesh connectivity. Point clouds have neither. GESM-PC replaces $g_q$ by the projectors
+$\mathbf{P}=\mathbf{I}-\mathbf{n}\mathbf{n}^{\top}$, $\mathbf{N}=\mathbf{n}\mathbf{n}^{\top}$ built from pointwise normals, and evaluates a first-order energy on a local Jacobian:
 
 $$
 D_T=\mathbf{P} d\mathbf{v} \mathbf{P}+\mathbf{P}(d\mathbf{v})^{\top}\mathbf{P},\qquad

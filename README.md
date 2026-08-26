@@ -68,33 +68,27 @@ python examples/quickstart.py
 
 ## 1. OAR — correspondence-free registration
 
-**Upstream:** [OAR](https://github.com/) *(fill official URL)*  
-**Tasks:** FAUST, TOSCA (Tables II–III); Open-CAS occlusion (Table IV).  
-**What changed:** LLR regularizer → GESM-P / GESM-PN; optional MMC → RQ-CD.
+Correspondence-free test-time registration. OAR's SIREN is kept; LLR and MMC are replaced by GESM-PN and RQ-CD.
 
-```bash
-cd hosts/oar
-# env: follow upstream OAR README, then
-pip install -r requirements.txt
+```
+hosts/oar/
+  register.py
+  model.py        # SirenV / SirenVW
+  energy_oar.py
+  knn.py          # --knn euclidean | geodesic
+  io_ply.py
 ```
 
-| Script | Setting | Notes |
-|---|---|---|
-| `scripts/run_faust.py` | \(K=30\), \(\lambda_1=10^2\), \(\lambda_2=10^4\) | intra / inter RMSE |
-| `scripts/run_tosca.py` | same | Cat / Centaur / Dog / Gorilla |
-| `scripts/run_opencas.py` | default \(K=30\); `--occ` sets \(K=90\), \(\lambda_1=10^3\), \(\lambda_2=10\) | EPE / AccS / AccR / N-CD |
-
-Useful flags (names are placeholders — match your argparse):
+From the repository root:
 
 ```bash
-python scripts/run_faust.py --energy pn          # GESM-PN (default)
-python scripts/run_faust.py --energy p           # GESM-P, no normals
-python scripts/run_faust.py --no-adw             # frozen uniform weights
-python scripts/run_faust.py --fidelity mmc       # OAR MMC instead of RQ-CD
-python scripts/run_opencas.py --occ --no-adw
+pip install -e .
+python hosts/oar/register.py --source src.ply --target tgt.ply --out warped.ply
+python hosts/oar/register.py --source src.ply --target tgt.ply --knn geodesic
+python hosts/oar/register.py --source src.ply --target tgt.ply --no-adw
+python hosts/oar/register.py --source src.ply --target tgt.ply --occ
 ```
 
-Same-host protocol: SIREN, sampling and \(\lambda\) stay as in OAR; only the deformation energy (and optionally the fidelity) change. PN w/o ADW and PN w/o RQ-CD are the ablations in the paper.
 
 **Data:** put FAUST / TOSCA / Open-CAS under `hosts/oar/data/` as required by upstream. We do not redistribute those datasets.
 

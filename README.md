@@ -82,11 +82,12 @@ hosts/oar/
 From the repository root:
 
 ```bash
+cd hosts/oar
 pip install -e .
-python hosts/oar/register.py --source src.ply --target tgt.ply --out warped.ply
-python hosts/oar/register.py --source src.ply --target tgt.ply --knn geodesic
-python hosts/oar/register.py --source src.ply --target tgt.ply --no-adw
-python hosts/oar/register.py --source src.ply --target tgt.ply --occ
+python register.py --source src.ply --target tgt.ply --out warped.ply
+python register.py --source src.ply --target tgt.ply --knn geodesic
+python register.py --source src.ply --target tgt.ply --no-adw
+python register.py --source src.ply --target tgt.ply --occ
 ```
 
 

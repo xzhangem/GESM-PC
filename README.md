@@ -67,7 +67,7 @@ python examples/quickstart.py
 ---
 
 ## 1. OAR — correspondence-free registration
-
+**Upstream:** [OAR](https://github.com/zikai1/OAReg).
 Correspondence-free test-time registration. OAR's SIREN is kept; LLR and MMC are replaced by GESM-PN and RQ-CD.
 
 ```

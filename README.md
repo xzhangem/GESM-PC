@@ -32,6 +32,7 @@ GESM-PC/
     graphscnet/experiments_gesm         # correspondence-based deformation graph (4DMatch)
     nfgp/                               # implicit handle-based editing
     4deform/                            # implicit interpolation
+    H2_SurfaceMatch/                    # GESM-PC in mesh form using GESM shape analysis framework
   examples/
     quickstart.py
 ```
@@ -141,12 +142,12 @@ python interpolate.py --energy gesm-pn --dataset 4d-dress
 
 ## 5. Mesh surrogate (GESM vs GESM-PC)
 
-**Upstream:** [H2_SurfaceMatch](https://github.com/emmanuel-hartman/H2_SurfaceMatch) (GPL-3.0)  
-**Task:** Table of unweighted \((g_{\mathrm{shr}}, g_{\mathrm{scale}}, g_{\mathrm{bend}})\) on `deformed_sphere`.  
+**Upstream:** [H2_SurfaceMatch](https://github.com/emmanuel-hartman/H2_SurfaceMatch) (GPL-3.0)    
 **What changed:** vertex-wise GESM-PC (`enr/H2.py`, `enr/DDG.py`) next to face-wise `getGabNorm`.
 
+Direct comparsions between GESM-PC and GESM using deformed_sphere samples:
 ```bash
-cd examples/mesh_surrogate   # or hosts/h2_surfacematch
+cd hosts/H2_SurfaceMatch
 python compare_gesm_pc.py
 ```
 

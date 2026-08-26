@@ -185,8 +185,6 @@ Please also cite the host methods you run (OAR, GraphSCNet, NFGP, 4Deform, Hartm
 
 ## Licenses
 
-- Original GESM-PC operators (`gesm_pc/`): MIT *(or your choice)*.
-- `hosts/oar`, `hosts/graphscnet`, `hosts/nfgp`, `hosts/4deform`, `examples/mesh_surrogate`: **upstream licenses unchanged**. Do not relicense Hartman’s GPL code as MIT.
 
 ---
 

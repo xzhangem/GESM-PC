@@ -28,10 +28,10 @@ GESM-PC/
     __init__.py
     core.py          # projectors / knn_jacobian / operators / energy / rq_cd
   hosts/
-    oar/                # correspondence-free registration (FAUST / TOSCA / Open-CAS)
-    graphscnet/         # correspondence-based deformation graph (4DMatch)
-    nfgp/               # implicit handle-based editing
-    4deform/            # implicit interpolation
+    oar/                                # correspondence-free registration (FAUST / TOSCA / Open-CAS)
+    graphscnet/experiments_gesm         # correspondence-based deformation graph (4DMatch)
+    nfgp/                               # implicit handle-based editing
+    4deform/                            # implicit interpolation
   examples/
     quickstart.py
 ```
@@ -97,18 +97,16 @@ python register.py --source src.ply --target tgt.ply --occ
 
 ## 2. GraphSCNet — correspondence-based deformation graph
 
-**Upstream:** [GraphSCNet](https://github.com/) *(fill URL)* + Lepard correspondences  
-**Tasks:** 4DMatch / 4DLoMatch.  
+**Upstream:** [GraphSCNet](https://github.com/qinzheng93/GraphSCNet)  
 **What changed:** ARAP deformation-graph energy → GESM-PC on node Jacobians.
-
+Here please download the original [GraphSCNet](https://github.com/qinzheng93/GraphSCNet) and set up the suggested enviornment. Then use graphscnet/experiments_gesm to replace its original experiments file. 
 ```bash
-cd hosts/graphscnet
-pip install -r requirements.txt
-python scripts/eval_4dmatch.py --energy pn     # or p
-python scripts/eval_4dmatch.py --split 4dlomatch
+# 4DMatch
+CUDA_VISIBLE_DEVICES=0 python test.py --test_epoch=EPOCH --benchmark=4DMatch-F
+# 4DLoMatch
+CUDA_VISIBLE_DEVICES=0 python test.py --test_epoch=EPOCH --benchmark=4DLoMatch-F
 ```
 
-Node head outputs a \(3\times 3\) Jacobian (not a 6D rigid motion). This is **not** a matched-architecture swap with the ARAP baseline; OAR is the matched-architecture experiment. Report inlier ratio / RMSE as in GraphSCNet.
 
 ---
 

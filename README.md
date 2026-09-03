@@ -113,8 +113,8 @@ CUDA_VISIBLE_DEVICES=0 python test.py --test_epoch=EPOCH --benchmark=4DLoMatch-F
 
 ## 3. NFGP — implicit handle editing
 
-**Upstream:** [NFGP](https://github.com/stevenygd/NFGP) 
-**Tasks:** handle-based edits (e.g. Jolteon)
+**Upstream:** [NFGP](https://github.com/stevenygd/NFGP). 
+**Tasks:** handle-based edits (e.g. Jolteon).
 **What changed:** 
 Add gesm_pc_losses.py to NFGP/trainers/losses/
 Exchange implicit_deform.py with the original NFGP/trainers/implicit_deform.py

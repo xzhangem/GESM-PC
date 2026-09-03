@@ -1,0 +1,80 @@
+data:
+  type: datasets.deform_handles_datasets
+  num_workers: 4
+  path: data/jolteon/deform_jump.npy
+  train:
+    length: 100
+    batch_size: 1
+  val:
+    length: 1
+    batch_size: 1
+
+viz:
+  log_freq: 1
+  viz_freq: 100
+  save_freq: 10
+  val_freq: 1
+
+trainer:
+  type: trainers.implicit_deform_3D
+  epochs: 1000
+  seed: 100
+  wrapper_type: 'deformation'
+  show_network_hist: False
+  sample_cfg:
+    num_points: 5000
+    detach_weight: True
+    use_rejection: True
+  #  invert_sample: False
+  # Handle loss
+  loss_h_weight: 100.
+  loss_h_thr: 1e-4
+  # Legacy stretch / bend weights (used as fallback mapping)
+  loss_stretch:
+    weight: 0.0 #5e-4
+  loss_bend:
+    weight: 0.0 #1e-5
+  loss_g:
+    weight: 0.
+    num_points: 0
+  # ------------------------------------------------------------------
+  # GESM-PC (Eq. 14) – preferred way to set the elastic energies
+  #   a1 = weight_shear   (shearing / distortion on tangent plane)
+  #   b1 = weight_scale   (isotropic scaling on tangent plane)
+  #   c1 = weight_bend    (bending / change of normal)
+  #   a2 = weight_smooth  (optional first-order smoothness)
+  # Set use_original_thin_shell: true to fall back to the original
+  # NFGP stretch + Hessian bending losses.
+  # ------------------------------------------------------------------
+  loss_gesm:
+    weight_shear: 0.0 #1e-1 #1e-2
+    weight_scale: 1e-2 #1e-1
+    weight_jtj: 1e-1
+    weight_bend: 1e-5
+    weight_smooth: 0.
+    use_original_thin_shell: false
+  opt:
+    type: 'adam'
+    lr: 1e-4
+    beta1: 0.9
+    beta2: 0.999
+    momentum: 0.9
+    weight_decay: 0.
+
+models:
+  decoder:
+    path: pretrained/neural_fields/jolteon/latest.pt
+    type: models.siren_mlp
+    dim: 3
+    out_dim: 1
+    hidden_size: 512
+    n_blocks: 5
+    z_dim: 1
+  deform_decoder:
+    type: models.inv_res
+    dim: 3
+    out_dim: 3
+    hidden_size: 256
+    n_blocks: 6
+    nonlin: elu
+    pos_enc_freq: 5

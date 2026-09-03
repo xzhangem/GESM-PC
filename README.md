@@ -116,10 +116,10 @@ CUDA_VISIBLE_DEVICES=0 python test.py --test_epoch=EPOCH --benchmark=4DLoMatch-F
 **Upstream:** [NFGP](https://github.com/stevenygd/NFGP).  
 **Tasks:** handle-based edits (e.g. Jolteon).   
 **What changed:**   
-Add gesm_pc_losses.py to NFGP/trainers/losses/  
-Exchange implicit_deform.py with the original NFGP/trainers/implicit_deform.py  
-Exchange train.py with the original NFGP/train.py  
-Add jolteon_jump_gesm.yaml to NFGP/configs/deformation/  
+a.Add gesm_pc_losses.py to NFGP/trainers/losses/  
+b.Exchange implicit_deform.py with the original NFGP/trainers/implicit_deform.py  
+c.Exchange train.py with the original NFGP/train.py  
+d.Add jolteon_jump_gesm.yaml to NFGP/configs/deformation/  
 
 ```bash
 cd hosts/nfgp

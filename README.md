@@ -113,14 +113,17 @@ CUDA_VISIBLE_DEVICES=0 python test.py --test_epoch=EPOCH --benchmark=4DLoMatch-F
 
 ## 3. NFGP — implicit handle editing
 
-**Upstream:** [NFGP](https://github.com/) *(fill URL)*  
+**Upstream:** [NFGP](https://github.com/stevenygd/NFGP) 
 **Tasks:** handle-based edits (e.g. Jolteon).  
-**What changed:** NFGP stretching / Hessian bending losses → GESM-PN on the residual-network Jacobian; no Laplacian term (level-set already smooth).
+**What changed:** 
+Add gesm_pc_losses.py to NFGP/trainers/losses/
+Exchange implicit_deform.py with the original NFGP/trainers/implicit_deform.py
+Exchange train.py with the original NFGP/train.py
+Add jolteon_jump_gesm.yaml to NFGP/configs/deformation/
 
 ```bash
 cd hosts/nfgp
-python edit.py --shape jolteon --mode scale+bend --w-bend 1e-3 --w-scale 1e-1
-python edit.py --shape jolteon --mode shear+bend --w-bend 1e-3 --w-shear 1e-1
+python train.py configs/deformation/jolteon_jump_gesm.yaml
 ```
 
 Normals and Jacobians come from the SDF (`n = \nabla\phi/\|\nabla\phi\|`). Weights here are **frozen** (editing axes), not the matching ADW head.
